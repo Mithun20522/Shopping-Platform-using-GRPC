@@ -1,0 +1,92 @@
+syntax = "proto3";
+package shoppingPackage;
+
+service Shopping {
+    rpc RegisterSeller(sellerDetails) returns (sellerDetails) {}
+    rpc SellItem(sellItemInfo) returns (sellItemInfo) {}
+    rpc UpdateItem(updateItemInfo) returns (updateItemInfo) {}
+    rpc DeleteItem(deleteItemInfo) returns (deleteItemInfo) {}
+    rpc DisplaySellerItems(displayItemsInfo) returns (displayItemsInfo) {}
+    rpc LoginByUUID(loginInfo) returns (loginInfo) {}
+    rpc SearchItem(SearchItemInfo) returns (SearchItemInfo) {}
+    rpc BuyItem(BuyItemInfo) returns (BuyItemInfo) {}
+    rpc AddToWishList(cartInfo) returns (cartInfo) {}
+    rpc RateItem(RateItemInfo) returns (RateItemInfo) {}
+}
+
+
+message noparam {}
+
+message loginInfo{
+    string uuid=1;
+    string status=2;
+}
+message sellerDetails{
+    string uuid = 1;
+    string sellerAddress = 2;
+    string status = 3;
+}
+
+message sellItemInfo{
+    string ProductName = 1;
+    string category = 2;
+    int32 qty = 3;
+    string description = 4;
+    string sellerAddress = 5;
+    string uuid = 6;
+    int32 pricePerunit = 7;
+    int32 uniqueItemID = 8;
+    string status = 9;
+    string rate = 10;
+}
+
+message updateItemInfo{
+    int32 itemID = 1;
+    int32 qty = 2;
+    string sellerAddress = 3;
+    string uuid = 4;
+    int32 pricePerunit = 5;
+    string status = 6;
+}
+
+message deleteItemInfo{
+    int32 itemID = 1;
+    string sellerAddress = 2;
+    string uuid = 3;
+    string status = 4;
+}
+
+
+message displayItemsInfo{
+    string uuid = 1;
+    string sellerAddress = 2;
+    repeated sellItemInfo items = 3;
+    string status = 4;
+}
+
+
+message SearchItemInfo{
+    string itemName = 1;
+    string itemCategory = 2;
+    repeated sellItemInfo items = 3;
+}
+
+message BuyItemInfo{
+    int32 itemID = 1;
+    int32 qty = 2;
+    string sellerAddress = 3;
+    string status = 4;
+}
+
+message RateItemInfo{
+    int32 itemID = 1;
+    string sellerAddress = 2;
+    int32 rate = 3;
+    string status = 4;
+}
+
+message cartInfo{
+    int32 itemID = 1;
+    string sellerAddress = 2;
+    string status = 3;
+}
