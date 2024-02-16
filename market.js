@@ -6,7 +6,7 @@ const shoppingPackage = grpcObj.shoppingPackage;
 var PORT = 0;
 const market = new grpc.Server();
 
-market.bindAsync("localhost:8000", grpc.ServerCredentials.createInsecure(),
+market.bindAsync("0.0.0.0:8000", grpc.ServerCredentials.createInsecure(),
     (err , port) => {
         if(err){
             console.log("Error occured at market server port: ", err);
