@@ -16,9 +16,9 @@ This is a CLI based shopping application project that facilitates interactions b
 1. **Installation**: Make sure you have Node.js installed on your system. Then, run `npm install` to install project dependencies.
 
 2. **Running the Application**:
-   - Start the market module: `node market.js`
-   - Start the sellers module: `node sellers.js`
-   - Start the buyers module: `node buyers.js`
+   - Start the market: `node market.js`
+   - Start the sellers: `node sellers.js`
+   - Start the buyers: `node buyers.js`
    
 
 3. **Functionality**:
