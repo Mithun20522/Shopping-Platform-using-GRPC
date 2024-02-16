@@ -1,6 +1,6 @@
 # Shopping Plateform CLI based Application using GRPC in nodejs
-**This is part-1 of the Assignment -1 of DSCD course**.
-This is a CLI based shopping application project that facilitates interactions between buyers and sellers through gRPC communication. It allows buyers and sellers to intract with each others functionalities and actions.
+This is a CLI based shopping application project that facilitates interactions between buyers and sellers through gRPC communication. It allows buyers and sellers to intract with each others functionalities and actions. <br/>
+**It is the part-1 of the Assignment-1 of my DSCD course**.
 
 ## Project Structure
 
