@@ -116,7 +116,9 @@ function SellItem(call, callback){
 let updatedNotification = [];
 function UpdateItem(call, callback){
     const isAccountExists = registeredAddressesUUID.some((obj) => obj.sellerAddress === call.request.sellerAddress && obj.uuid === call.request.uuid);
-    if(isAccountExists && (sellItemsinfo && sellItemsinfo.length > 0)){
+    if(isAccountExists && (sellItemsinfo && sellItemsinfo.length > 0) && 
+    (sellItemsinfo.some((obj) => obj.sellerAddress === call.request.sellerAddress && 
+    obj.uniqueItemID === call.request.itemID))){
         sellItemsinfo.some(obj => {
             if (obj.uniqueItemID === call.request.itemID) {
                 obj.pricePerunit = call.request.pricePerunit;
@@ -167,7 +169,9 @@ function UpdateItem(call, callback){
 
 function DeleteItem(call, callback){
     const isAccountExists = registeredAddressesUUID.some((obj) => obj.sellerAddress === call.request.sellerAddress && obj.uuid === call.request.uuid);
-    if(isAccountExists && (sellItemsinfo && sellItemsinfo.length > 0)){
+    if(isAccountExists && (sellItemsinfo && sellItemsinfo.length > 0) && 
+        (sellItemsinfo.some((obj) => obj.sellerAddress === call.request.sellerAddress && 
+        obj.uniqueItemID === call.request.itemID))){
         const afterDeletionSellIteminfo = sellItemsinfo.filter((obj) => {
             return !(obj.uniqueItemID === call.request.itemID && 
                      obj.sellerAddress === call.request.sellerAddress && 
