@@ -17,7 +17,7 @@ This is a CLI based shopping application project that facilitates interactions b
 
 2. **Running the Application**:
    - Start the market: `node market.js`
-   - Start the sellers: `node sellers.js`
+   - Start the sellers: `node seller.js`
    - Start the buyers: `node buyers.js`
    
 
