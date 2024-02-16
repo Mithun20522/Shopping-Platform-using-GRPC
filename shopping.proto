@@ -12,14 +12,18 @@ service Shopping {
     rpc BuyItem(BuyItemInfo) returns (BuyItemInfo) {}
     rpc AddToWishList(cartInfo) returns (cartInfo) {}
     rpc RateItem(RateItemInfo) returns (RateItemInfo) {}
+    rpc NotifyClient(ItemBuyUpdateAndRatedInfo) returns (ItemBuyUpdateAndRatedInfo) {}
+    rpc buyerRegister(buyerRegisterInfo) returns (buyerRegisterInfo) {}
+    rpc buyerLogin(buyerRegisterInfo) returns (buyerRegisterInfo) {}
 }
 
 
 message noparam {}
 
 message loginInfo{
-    string uuid=1;
-    string status=2;
+    string sellerAddress = 1;
+    string uuid=2;
+    string status=3;
 }
 message sellerDetails{
     string uuid = 1;
@@ -65,6 +69,7 @@ message displayItemsInfo{
 }
 
 
+
 message SearchItemInfo{
     string itemName = 1;
     string itemCategory = 2;
@@ -76,17 +81,43 @@ message BuyItemInfo{
     int32 qty = 2;
     string sellerAddress = 3;
     string status = 4;
+    string buyerAddress = 5;
 }
 
 message RateItemInfo{
     int32 itemID = 1;
     string sellerAddress = 2;
-    int32 rate = 3;
+    string rate = 3;
     string status = 4;
+    string buyerAddress = 5;
 }
 
 message cartInfo{
     int32 itemID = 1;
     string sellerAddress = 2;
     string status = 3;
+    string buyerAddress = 4;
 }
+
+message updatenotification {
+    int32 itemID = 1;
+    int32 pricePerunit = 2;
+    string productName = 3;
+    string category = 4;
+    string description = 5;
+    int32 qty = 6;
+    string rate = 7;
+    string sellerAddress = 8;
+}
+message ItemBuyUpdateAndRatedInfo {
+    repeated updatenotification upnotif = 1;
+    repeated RateItemInfo rateItemNotification = 2;
+    string buyerAddress = 3;
+    repeated BuyItemInfo buyitemnotification = 4;
+}
+
+message buyerRegisterInfo{
+    string buyerAddress = 1;
+    string status = 2;
+}
+
